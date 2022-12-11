@@ -1,0 +1,83 @@
+img {
+	--s: 250px;
+	--b: 8px;
+	--g: 15px;
+	--c: #ffff;
+	
+	width: var(--s);
+	aspect-ratio: 1;
+	outline: calc(var(--s)/2) solid #0009;
+	outline-offset: calc(var(--s)/-2);
+	cursor: pointer;
+	transition: 0.3s;
+}
+img:hover {
+	outline: var(--b) solid var(--c);
+	outline-offset: var(--g);
+}
+
+img {
+	border-radius: 50%;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	display: grid;
+	grid-auto-flow: column;
+	gap: 50px;
+	place-content: center;
+	place-items: center;
+	background: black;
+}
+
+* {
+	margin: 200px 1px;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background: #263238;
+}
+
+.content {
+	position: absolute;
+}
+
+.content h2 {
+	position: absolute;
+	transform: translate( -50%, -50%);
+	font-size: 2cm;
+}
+
+.content h2:nth-child(1) {
+	color: transparent;
+	-webkit-text-stroke: 3px #ffff;
+}
+
+.content h2:nth-child(2) {
+	color: #ffff;
+	animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate {
+	0%,
+	100% {
+		clip-path: polygon(0% 45%, 15% 44%, 32% 50%, 54% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100%);
+	}
+	50% {
+		clip-path: polygon(0% 60%, 16% 65%, 34% 66%, 51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%);
+	}
+}
+
+@media(max-width: 500px) {
+	.content h2 {
+		font-size: 2cm;
+	}
+}
